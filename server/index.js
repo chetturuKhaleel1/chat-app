@@ -7,6 +7,9 @@ import cors from "cors";
 // App Setup
 const app = express();
 app.use(cors());
+app.get("/", (req, res) => {
+  res.send("✅ Chat backend is running.");
+});
 
 const server = http.createServer(app);
 const io = new Server(server, {
