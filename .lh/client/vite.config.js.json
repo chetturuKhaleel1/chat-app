@@ -1,0 +1,30 @@
+{
+    "sourceFile": "client/vite.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1752161905416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1752161911406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,6 +3,6 @@\n import tailwindcss from '@tailwindcss/vite'\n \n // https://vite.dev/config/\n export default defineConfig({\n-  plugins: [react()],\n+  plugins: [react(),],\n })\n"
+                },
+                {
+                    "date": 1752163734281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import { defineConfig } from 'vite'\n+import react from '@vitejs/plugin-react'\n+import tailwindcss from '@tailwindcss/vite'\n+\n+// https://vite.dev/config/\n+export default defineConfig({\n+  plugins: [react(), tailwindcss()],\n+  \n+})\n"
+                },
+                {
+                    "date": 1752163741759,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import { defineConfig } from 'vite'\n+import react from '@vitejs/plugin-react'\n+import tailwindcss from '@tailwindcss/vite'\n+\n+// https://vite.dev/config/\n+export default defineConfig({\n+  plugins: [react(), tailwindcss()],\n+server: {\n+    proxy: {\n+      '/socket.io': {\n+        target: 'http://localhost:3000',\n+        ws: true,\n+      }\n+    }\n+  }\n+})\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1752161905416,
+            "name": "Commit-0",
+            "content": "import { defineConfig } from 'vite'\nimport react from '@vitejs/plugin-react'\nimport tailwindcss from '@tailwindcss/vite'\n\n// https://vite.dev/config/\nexport default defineConfig({\n  plugins: [react()],\n})\n"
+        }
+    ]
+}

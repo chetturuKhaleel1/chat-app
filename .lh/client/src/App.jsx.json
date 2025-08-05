@@ -1,0 +1,42 @@
+{
+    "sourceFile": "client/src/App.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1752155035197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1752240047904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,15 @@\n-v\n\\ No newline at end of file\n+// src/App.jsx\n+import { BrowserRouter as Router, Routes, Route } from \"react-router-dom\";\n+import Login from \"./pages/Login\";\n+import ChatRoom from \"./pages/ChatRoom\";\n+\n+export default function App() {\n+  return (\n+    <Router>\n+      <Routes>\n+        <Route path=\"/\" element={<Login />} />\n+        <Route path=\"/chat\" element={<ChatRoom />} />\n+      </Routes>\n+    </Router>\n+  );\n+}\n"
+                },
+                {
+                    "date": 1752242382127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n // src/App.jsx\n import { BrowserRouter as Router, Routes, Route } from \"react-router-dom\";\n import Login from \"./pages/Login\";\n-import ChatRoom from \"./pages/ChatRoom\";\n+import ChatRoom from \"./pages/ChatRoom\"; // ✅ This is correct\n \n+\n export default function App() {\n   return (\n     <Router>\n       <Routes>\n"
+                },
+                {
+                    "date": 1752252101326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,15 @@\n-// src/App.jsx\n import { BrowserRouter as Router, Routes, Route } from \"react-router-dom\";\n import Login from \"./pages/Login\";\n-import ChatRoom from \"./pages/ChatRoom\"; // ✅ This is correct\n+import ChatRoom from \"./pages/ChatRoom\";\n+import LandingPage from \"./pages/LandingPage\"; // ✅ import it here\n \n-\n export default function App() {\n   return (\n     <Router>\n       <Routes>\n-        <Route path=\"/\" element={<Login />} />\n+        <Route path=\"/\" element={<LandingPage />} /> {/* ✅ landing page as home */}\n+        <Route path=\"/login\" element={<Login />} />\n         <Route path=\"/chat\" element={<ChatRoom />} />\n       </Routes>\n     </Router>\n   );\n"
+                },
+                {
+                    "date": 1752252543057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { BrowserRouter as Router, Routes, Route } from \"react-router-dom\";\n-import Login from \"./pages/Login\";\n+import Login from \"./pages/JoinPage\";\n import ChatRoom from \"./pages/ChatRoom\";\n import LandingPage from \"./pages/LandingPage\"; // ✅ import it here\n \n export default function App() {\n"
+                },
+                {
+                    "date": 1752252602060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import { BrowserRouter as Router, Routes, Route } from \"react-router-dom\";\n-import Login from \"./pages/JoinPage\";\n+import Login from \"./pages/Login\";\n import ChatRoom from \"./pages/ChatRoom\";\n import LandingPage from \"./pages/LandingPage\"; // ✅ import it here\n \n export default function App() {\n"
+                },
+                {
+                    "date": 1752253187539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,14 @@\n import { BrowserRouter as Router, Routes, Route } from \"react-router-dom\";\n+import LandingPage from \"./pages/LandingPage\";\n import Login from \"./pages/Login\";\n import ChatRoom from \"./pages/ChatRoom\";\n-import LandingPage from \"./pages/LandingPage\"; // ✅ import it here\n \n export default function App() {\n   return (\n     <Router>\n       <Routes>\n-        <Route path=\"/\" element={<LandingPage />} /> {/* ✅ landing page as home */}\n+        <Route path=\"/\" element={<LandingPage />} />\n         <Route path=\"/login\" element={<Login />} />\n         <Route path=\"/chat\" element={<ChatRoom />} />\n       </Routes>\n     </Router>\n"
+                }
+            ],
+            "date": 1752155035197,
+            "name": "Commit-0",
+            "content": "v"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client/src/socket.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1752163455383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1752242221747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,6 @@\n // src/socket.js\r\n import { io } from \"socket.io-client\";\r\n-\r\n-// Create socket instance but don't connect immediately\r\n const socket = io(\"http://localhost:3000\", {\r\n   autoConnect: false,\r\n });\r\n-\r\n export default socket;\r\n"
+                }
+            ],
+            "date": 1752163455383,
+            "name": "Commit-0",
+            "content": "// src/socket.js\r\nimport { io } from \"socket.io-client\";\r\n\r\n// Create socket instance but don't connect immediately\r\nconst socket = io(\"http://localhost:3000\", {\r\n  autoConnect: false,\r\n});\r\n\r\nexport default socket;\r\n"
+        }
+    ]
+}

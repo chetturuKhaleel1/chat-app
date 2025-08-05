@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client/src/utils/formatMessage.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1754053319207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1754053509648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,25 +1,48 @@\n-// src/utils/formatMessage.js\r\n+import DOMPurify from \"dompurify\";\r\n \r\n+// Simple emoji map\r\n+const emojiMap = {\r\n+  smile: \"😄\",\r\n+  heart: \"❤️\",\r\n+  thumbsup: \"👍\",\r\n+  fire: \"🔥\",\r\n+  cry: \"😢\",\r\n+  laugh: \"😂\",\r\n+  angry: \"😠\",\r\n+  rocket: \"🚀\",\r\n+};\r\n+\r\n export function formatMessage(text) {\r\n   if (!text) return \"\";\r\n \r\n-  // Escape HTML first to prevent injection\r\n-  const escaped = text\r\n+  // 1. Escape HTML\r\n+  let safe = text\r\n     .replace(/&/g, \"&amp;\")\r\n     .replace(/</g, \"&lt;\")\r\n     .replace(/>/g, \"&gt;\");\r\n \r\n-  // Bold: **bold**\r\n-  const bolded = escaped.replace(/\\*\\*(.*?)\\*\\*/g, \"<strong>$1</strong>\");\r\n+  // 2. Bold: **bold**\r\n+  safe = safe.replace(/\\*\\*(.*?)\\*\\*/g, \"<strong>$1</strong>\");\r\n \r\n-  // Italic: *italic*\r\n-  const italicized = bolded.replace(/\\*(.*?)\\*/g, \"<em>$1</em>\");\r\n+  // 3. Italic: *italic*\r\n+  safe = safe.replace(/\\*(.*?)\\*/g, \"<em>$1</em>\");\r\n \r\n-  // Links: [OpenAI](https://openai.com)\r\n-  const linked = italicized.replace(\r\n+  // 4. Inline Code: `code`\r\n+  safe = safe.replace(/`(.*?)`/g, '<code class=\"bg-gray-100 px-1 rounded\">$1</code>');\r\n+\r\n+  // 5. Link: [text](https://...)\r\n+  safe = safe.replace(\r\n     /\\[(.*?)\\]\\((https?:\\/\\/[^\\s]+)\\)/g,\r\n-    `<a href=\"$2\" target=\"_blank\" class=\"text-blue-600 underline\">$1</a>`\r\n+    '<a href=\"$2\" class=\"text-blue-600 underline\" target=\"_blank\" rel=\"noopener noreferrer\">$1</a>'\r\n   );\r\n \r\n-  return linked;\r\n+  // 6. Emoji: :smile:\r\n+  safe = safe.replace(/:([a-z0-9_+-]+):/gi, (match, p1) => {\r\n+    return emojiMap[p1.toLowerCase()] || match;\r\n+  });\r\n+\r\n+  // 7. Mentions: @username\r\n+  safe = safe.replace(/@(\\w+)/g, '<span class=\"mention text-purple-600 font-semibold\">@$1</span>');\r\n+\r\n+  return DOMPurify.sanitize(safe);\r\n }\r\n"
+                }
+            ],
+            "date": 1754053319207,
+            "name": "Commit-0",
+            "content": "// src/utils/formatMessage.js\r\n\r\nexport function formatMessage(text) {\r\n  if (!text) return \"\";\r\n\r\n  // Escape HTML first to prevent injection\r\n  const escaped = text\r\n    .replace(/&/g, \"&amp;\")\r\n    .replace(/</g, \"&lt;\")\r\n    .replace(/>/g, \"&gt;\");\r\n\r\n  // Bold: **bold**\r\n  const bolded = escaped.replace(/\\*\\*(.*?)\\*\\*/g, \"<strong>$1</strong>\");\r\n\r\n  // Italic: *italic*\r\n  const italicized = bolded.replace(/\\*(.*?)\\*/g, \"<em>$1</em>\");\r\n\r\n  // Links: [OpenAI](https://openai.com)\r\n  const linked = italicized.replace(\r\n    /\\[(.*?)\\]\\((https?:\\/\\/[^\\s]+)\\)/g,\r\n    `<a href=\"$2\" target=\"_blank\" class=\"text-blue-600 underline\">$1</a>`\r\n  );\r\n\r\n  return linked;\r\n}\r\n"
+        }
+    ]
+}
