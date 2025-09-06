@@ -1,6 +1,6 @@
 # 💬 Real-Time Chat Application
 
-A web-based real-time chat application built using **React**, **Tailwind CSS**, and **Socket.io** (frontend only).  
+A web-based real-time chat application built using **React.js**, **Tailwind CSS**, and **Socket.io** (frontend only).  
 The app provides an interactive interface for users to join chat rooms and exchange messages instantly.
 
 ---
@@ -11,12 +11,12 @@ The app provides an interactive interface for users to join chat rooms and excha
 ---
 
 ## ✨ Features
-- Enter a username before joining.
-- Join existing chat rooms or create new ones.
-- Exchange messages in real time with instant updates.
-- Messages include sender’s name and timestamp.
-- Supports basic text formatting (bold, italics, links).
-- Smooth scrolling and responsive design for all devices.
+- Enter a **username** before joining.  
+- Join existing chat rooms or **create new ones**.  
+- Exchange messages in **real time** with instant updates.  
+- Messages include **sender’s name** and **timestamp**.  
+- Supports basic **text formatting** (bold, italics, links).  
+- Smooth scrolling and **responsive design** for all devices.  
 
 ---
 
@@ -28,13 +28,21 @@ The app provides an interactive interface for users to join chat rooms and excha
 
 ---
 
-## 📷 Screenshots
-![Final Chat Screen](./client/src/assets/finalchatscreen.png)
+## 📷 Screenshot
+![Final Chat Screen](client/src/assets/finalchatscreen.png)
 
 ---
 
-## 📌 Project Status
-🔹 Current version is a **frontend prototype** with Socket.io integration.  
-🔹 Backend features like database, authentication, and message persistence can be added in future updates.  
+## ⚡ How to Clone and Run Locally
+```bash
+# Clone the repository
+git clone https://github.com/chetturuKhaleel1/chat-app.git
 
----
+# Navigate into the project folder
+cd chat-app
+
+# Install dependencies
+npm install
+
+# Start the frontend
+npm start
